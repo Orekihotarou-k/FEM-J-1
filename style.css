@@ -1,222 +1,167 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* root */
+:root {
+    --clr-Moderate-violet: #7541c8;
+    --clr-Very-dark-grayish-blue: #48556a;
+    --clr-Very-dark-blackish-blue: #19212e;
+    --clr-White: #ffffff;
+    
+    --clr-Light-gray: #cfcfcf;
+    --clr-Light-grayish-blue: #ecf2f8;
+
+    --ff-primary: "Barlow Semi Condensed", sans-serif;
+
+    --fw-400: 500;
+    --fw-700: 600;
+  
+    --fs-small: 0.6875rem;
+    --fs-medium: 0.8125rem;
+    --fs-large: 1.25rem;
+}
+
+
+/* reset */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
-    font-family: 'Barlow Semi Condensed', sans-serif;
     box-sizing: border-box;
 }
 
-:root{
-    /* primary colors */
-
-    --clr-primary-moderate-violet: hsl(263, 55%, 52%);
-    --clr-primary-very-dark-grayish-blue: hsl(217, 19%, 35%);
-    --clr-primary-very-dark-blackish-blue: hsl(219, 29%, 14%);
-    --clr-primary-white: hsl(0, 0%, 100%);
-
-    /* neutral colors */
-    --clr-neutral-light-gray: hsl(0, 0%, 81%);
-    --clr-neutral-light-grayish-blue: hsl(210, 46%, 95%);
+img {
+  max-width: 100%;
+  display: block;
 }
 
-body{
-    font-size: 13px;
-    background: var(--clr-neutral-light-grayish-blue);
-}
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-medium);
+    font-weight: var(--fw-400);
+    color: var(--clr-Light-grayish-blue);
 
-main{
-    width: min(80%, 1440px);
-    margin-top: clamp(8%, 12rem, 4rem);
-    margin-inline: auto;
-}
-
-.container{
-    display: flex;  
-    flex-wrap: wrap;  
-    gap: 2em;
-}
-
-.container > *:nth-child(1){
-    flex: 1 1 70%;
-    min-width: 25ch;
-}
-
-.container > *:nth-child(2){
-    flex: 1 1 17%;
-    min-width: 35ch;
+    display: grid;
+    place-items: center;
+    min-height: 100dvh;
 }
 
 
-
-
-/* user-info */
-
-.user-info{
-    display: flex;
-    margin-bottom: 1rem;
-    flex-direction: column;
-}
-
-.user-info .user1{
+/* helper classes */
+.flex {
     display: flex;
     align-items: center;
+    gap: .8rem;
 }
 
-.user-info  img{
-    width: 35px;
-    border: 2px solid var(--clr-neutral-light-gray);
+.testimonial-bg-grey {
+    background: var(--clr-Very-dark-grayish-blue) !important;
+}
+
+.testimonial-bg-dark {
+    background: var(--clr-Very-dark-blackish-blue) !important;
+}
+
+.testimonial-bg-light {
+    background: var(--clr-White) !important;
+}
+
+.testimonial-bg-light p {
+    color: var(--clr-Very-dark-grayish-blue);
+}
+
+
+/* text styles */
+.username, .user-role {
+    color: var(--clr-Light-grayish-blue);
+}
+
+.username {
+    font-weight: var(--fw-700);
+}
+
+.user-role {
+    opacity: 50%;
+}
+
+.testimonial-content p:not([class]) {
+    opacity: 70%;
+}
+
+.testimonial-heading {
+    font-size: var(--fs-large);
+    color: var(--clr-White);
+    margin: 1rem 0 .8rem;
+}
+
+
+/* components */
+.testimonial {
+    padding: 1.25rem;
+    border-radius: .5rem;
+    background: var(--clr-Moderate-violet);
+}
+
+.user-info img {
+    width: 2rem;
     border-radius: 50%;
-    margin-right: 1rem;
-}
-
-.user-info p{
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    font-weight: 600;   
-    letter-spacing: 1px;
-    color: var(--clr-neutral-light-gray);
-}
-
-.user-info p span{
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0;
-    color: hsla(0, 0%, 81%, 0.5);
+    border: 1px solid var(--clr-Light-grayish-blue);
 }
 
 
-/* user story */
+/* layout styles */
+.testimonial-container {
+    display: grid;
+    gap: 1.25rem;
+    width: min(90%, 70rem);
+    margin: 4rem 0;
 
-.user-story h4{
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--clr-neutral-light-gray);
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    'one'
+    'two'
+    'three'
+    'four'
+    'five'
+    ;
 }
 
-.user-story p{
-    font-size: 14px;
-    font-weight: 500;
-    color: hsla(0, 0%, 81%, 0.7);
+.testimonial:nth-child(1) {
+    grid-area: one;
+}
+
+.testimonial:nth-child(2) {
+    grid-area: two;
+}
+
+.testimonial:nth-child(4) {
+    grid-area: three;
+}
+
+.testimonial:nth-child(4) {
+    grid-area: four;
+}
+
+.testimonial:nth-child(5) {
+    grid-area: five;
 }
 
 
-/* col1 */
-
-.col1{
-    display: flex;
-    gap: 2em;
-}
-
-@media screen and (max-width: 768px){
-    .col1{
-        display: block;
+/* media query */
+@media screen and (min-width: 35em) {
+    .testimonial-container {
+        grid-template-areas: 
+        'one one'
+        'two five'
+        'three five'
+        'four four'
+        ;
     }
 }
 
-.col1 > *:nth-child(1){
-    flex: 1 1 60%;
-    min-width: 25ch;
-    background: var(--clr-primary-moderate-violet);
-    border-radius: 8px;
-    padding: 1.8rem;
-}
-
-.col1 > *:nth-child(2){
-    flex: 1 1 30%;
-    min-width: 25ch;
-    background: var(--clr-primary-very-dark-grayish-blue);
-    border-radius: 8px;
-    padding: 1.8rem;
-}
-
-
-/* col2 */
-
-.col2{
-    display: flex;
-    gap: 2em;
-}
-
-@media screen and (max-width: 768px){
-    .col2{
-        display: block;
+@media screen and (min-width: 55em) {
+    .testimonial-container {
+        grid-template-areas: 
+        'one one two five'
+        'three four four five'
+        ;
     }
 }
-
-.col2 > *:nth-child(1){
-    flex: 1 1 30%;
-    min-width: 25ch;
-    background: var(--clr-primary-white);
-    border-radius: 8px;
-    padding: 1.8rem;
-}
-
-.col2 > *:nth-child(2){
-    flex: 1 1 60%;
-    min-width: 25ch;
-    background: var(--clr-primary-very-dark-blackish-blue);
-    border-radius: 8px;
-    padding: 1.8rem;
-}
-
-.col2 > *:nth-child(1){
-    .user1 p{
-        color: var(--clr-primary-very-dark-grayish-blue);
-    }
-
-    .user1 p span{
-        color: hsla(217, 19%, 35%, 0.5);
-    }
-
-    .user-story h4{
-        color: var(--clr-primary-very-dark-grayish-blue);
-    }
-
-    .user-story p{
-        color: hsla(217, 19%, 35%, 0.7);
-    }
-} 
-
-
-/* column 2 */
-
-.column2{
-
-    .user-info{
-        padding: 1.5rem;
-        padding-bottom: 3.5rem;
-        background: var(--clr-primary-white);
-        border-radius: 8px;
-    }
-
-    .user-info p{
-        color: var(--clr-primary-very-dark-grayish-blue);
-    }
-
-    .user-info p span{
-        color: hsla(217, 19%, 35%, 0.5);
-
-    }
-
-    .user-story h4{
-        color: var(--clr-primary-very-dark-grayish-blue);
-    }
-
-    .user-story p{
-        color: hsla(217, 19%, 35%, 0.7);
-    }
-
-}
-
-
-
-
-
-
-
-
-
-.attribution { font-size: 11px; text-align: center; margin: 2rem; }
-.attribution a { color: hsl(228, 45%, 44%); }
